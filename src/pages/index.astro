@@ -1,11 +1,514 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '../components/Header.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Clínica Dental Dr. [Apellido] - Odontología Integral en Itagüí" 
+        description="Clínica dental especializada en tratamientos odontológicos integrales. Ubicados en Itagüí, Antioquia. Agenda tu cita hoy.">
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <!-- Video de fondo -->
+      <div class="hero-video">
+        <video autoplay muted loop playsinline>
+          <source src="/videos/hero-dental.mp4" type="video/mp4">
+          <source src="/videos/hero-dental.webm" type="video/webm">
+          <!-- Imagen de fallback si no carga el video -->
+          <img src="/images/hero/hero-dental.jpg" alt="Clínica dental moderna">
+        </video>
+        <!-- Overlay oscuro -->
+        <div class="hero-overlay"></div>
+      </div>
+      
+      <div class="hero-content">
+        <!-- Texto principal del lado izquierdo -->
+        <div class="hero-text">
+          <h1>La atención que tu sonrisa merece, empieza con un mensaje.</h1>
+        </div>
+        
+        <!-- Formulario del lado derecho -->
+        <div class="hero-form">
+          <form class="contact-form" id="hero-contact-form">
+            <div class="form-group">
+              <input 
+                type="text" 
+                name="nombre" 
+                placeholder="Nombre completo" 
+                class="form-input" 
+                required>
+            </div>
+            
+            <div class="form-group">
+              <input 
+                type="tel" 
+                name="telefono" 
+                placeholder="# de Celular" 
+                class="form-input" 
+                required>
+            </div>
+            
+            <div class="form-group">
+              <input 
+                type="email" 
+                name="email" 
+                placeholder="Correo Electrónico" 
+                class="form-input" 
+                required>
+            </div>
+            
+            <div class="form-group">
+              <textarea 
+                name="mensaje" 
+                placeholder="¿Que podemos hacer por ti?" 
+                class="form-textarea" 
+                rows="4" 
+                required></textarea>
+            </div>
+            
+            <button type="submit" class="form-submit">
+              Enviar mensaje
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios Destacados -->
+    <section class="services-preview">
+      <div class="container">
+        <h2>Nuestros Servicios</h2>
+        <p class="section-subtitle">Ofrecemos una amplia gama de tratamientos dentales</p>
+        
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">🦷</div>
+            <h3>Odontología General</h3>
+            <p>Cuidado integral de tu salud oral con tratamientos preventivos y restaurativos.</p>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">✨</div>
+            <h3>Estética Dental</h3>
+            <p>Blanqueamientos, carillas y tratamientos para lograr la sonrisa perfecta.</p>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">🔧</div>
+            <h3>Ortodoncia</h3>
+            <p>Brackets tradicionales y transparentes para alinear perfectamente tus dientes.</p>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">🦴</div>
+            <h3>Implantes Dentales</h3>
+            <p>Reemplazo permanente de dientes perdidos con tecnología de última generación.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Por qué elegirnos -->
+    <section class="why-us">
+      <div class="container">
+        <div class="why-us-content">
+          <div class="why-us-text">
+            <h2>¿Por Qué Elegirnos?</h2>
+            <div class="feature">
+              <h3>🏥 Tecnología Avanzada</h3>
+              <p>Equipos de última generación para diagnósticos precisos y tratamientos efectivos.</p>
+            </div>
+            <div class="feature">
+              <h3>👨‍⚕️ Equipo Especializado</h3>
+              <p>Profesionales con amplia experiencia y formación continua en odontología.</p>
+            </div>
+            <div class="feature">
+              <h3>📍 Ubicación Conveniente</h3>
+              <p>Fácil acceso en el corazón de Itagüí con parqueadero disponible.</p>
+            </div>
+            <div class="feature">
+              <h3>💰 Precios Justos</h3>
+              <p>Tratamientos de calidad a precios accesibles con planes de financiamiento.</p>
+            </div>
+          </div>
+          <div class="why-us-image">
+            <img src="/clinic-interior.jpg" alt="Interior de la clínica" width="500" height="400">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto rápido -->
+    <section class="quick-contact">
+      <div class="container">
+        <h2>¡Agenda tu Cita Hoy!</h2>
+        <p>Estamos aquí para cuidar tu sonrisa</p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <strong>📞 Teléfono:</strong>
+            <a href="tel:+57xxxxxxxxx">+57 (xxx) xxx-xxxx</a>
+          </div>
+          <div class="contact-item">
+            <strong>📧 Email:</strong>
+            <a href="mailto:contacto@clinica.com">contacto@clinica.com</a>
+          </div>
+          <div class="contact-item">
+            <strong>📍 Dirección:</strong>
+            <span>Carrera XX #XX-XX, Itagüí, Antioquia</span>
+          </div>
+        </div>
+        <a href="/contacto" class="btn-primary">Contactar Ahora</a>
+      </div>
+    </section>
+  </main>
 </Layout>
+
+<style>
+  /* Hero Section con Video */
+  .hero {
+    position: relative;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+  }
+
+  .hero-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+		filter: brightness(0.60) contrast(1.1);
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.85) 100%);
+    z-index: -1;
+  }
+
+  .hero-content {
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 100px 40px 40px;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 600px;
+    gap: 60px;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .hero-text {
+    max-width: 700px;
+  }
+
+  .hero-text h1 {
+    font-size: 3.8rem;
+    color: white;
+    margin-bottom: 0;
+    line-height: 1.1;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    font-weight: 300;
+    letter-spacing: -0.5px;
+  }
+
+  /* Formulario del Hero - Mejorado para coincidir con la imagen */
+  .hero-form {
+    background: rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+  }
+
+  .contact-form .form-group {
+    margin-bottom: 24px;
+  }
+
+  .contact-form .form-input,
+  .contact-form .form-textarea {
+    width: 100%;
+    padding: 18px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    color: white;
+    transition: all 0.3s ease;
+    font-family: inherit;
+  }
+
+  .contact-form .form-input::placeholder,
+  .contact-form .form-textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+  }
+
+  .contact-form .form-input:focus,
+  .contact-form .form-textarea:focus {
+    outline: none;
+    border-color: rgba(255, 165, 0, 0.6);
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0 2px rgba(255, 165, 0, 0.2);
+  }
+
+  .contact-form .form-textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-submit {
+    width: 100%;
+    padding: 18px 30px;
+    background: linear-gradient(135deg, #ff9500 0%, #ff7b00 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: none;
+    letter-spacing: 0.3px;
+    margin-top: 8px;
+  }
+
+  .form-submit:hover {
+    background: linear-gradient(135deg, #ff7b00 0%, #ff6600 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 149, 0, 0.4);
+  }
+
+  /* Servicios */
+  .services-preview {
+    padding: 100px 0;
+    background: white;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .services-preview h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c5aa0;
+    margin-bottom: 10px;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 60px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .service-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-10px);
+  }
+
+  .service-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+
+  .service-card h3 {
+    color: #2c5aa0;
+    margin-bottom: 15px;
+  }
+
+  /* Por qué elegirnos */
+  .why-us {
+    padding: 100px 0;
+    background: #f8fafe;
+  }
+
+  .why-us-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .why-us h2 {
+    color: #2c5aa0;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+
+  .feature {
+    margin-bottom: 30px;
+  }
+
+  .feature h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+
+  /* Contacto rápido */
+  .quick-contact {
+    padding: 80px 0;
+    background: #2c5aa0;
+    color: white;
+    text-align: center;
+  }
+
+  .quick-contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  .contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .contact-item a {
+    color: #e8f4f8;
+    text-decoration: none;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 15px 30px;
+    background: white;
+    color: #2c5aa0;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+  }
+
+  /* Responsive */
+  @media (max-width: 1200px) {
+    .hero-content {
+      grid-template-columns: 1fr 380px;
+      gap: 40px;
+      padding: 100px 30px 40px;
+    }
+
+    .hero-text h1 {
+      font-size: 3.2rem;
+    }
+  }
+
+  @media (max-width: 968px) {
+    .hero-content {
+      grid-template-columns: 1fr 600px;
+      gap: 40px;
+      padding: 120px 20px 40px;
+      text-align: center;
+      max-width: 600px;
+    }
+
+    .hero-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .hero-text h1 {
+      font-size: 2.8rem;
+    }
+
+    .why-us-content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-text h1 {
+      font-size: 2.4rem;
+    }
+
+    .hero-form {
+      padding: 30px 25px;
+      margin: 0 15px;
+    }
+
+    .hero-content {
+      padding: 100px 15px 40px;
+    }
+
+    .contact-info {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* En móviles, pausar video para ahorrar datos */
+    .hero-video video {
+      display: none;
+    }
+    
+    .hero-overlay {
+      background: linear-gradient(135deg, rgba(0,0,0,0.60) 0%, rgba(44, 90, 160, 0.60) 100%);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-text h1 {
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    .hero-form {
+      padding: 25px 20px;
+    }
+
+    .contact-form .form-input,
+    .contact-form .form-textarea {
+      padding: 15px 18px;
+    }
+  }
+</style>

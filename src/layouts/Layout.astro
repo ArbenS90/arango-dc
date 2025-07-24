@@ -1,22 +1,65 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+export interface Props {
+  title: string;
+  description: string;
+}
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  
+  <!-- SEO para clínica dental -->
+  <meta name="keywords" content="dentista, clínica dental, odontología, Itagüí, Antioquia">
+  <meta name="author" content="Clínica Dental">
+  <meta name="geo.region" content="CO-ANT">
+  <meta name="geo.placename" content="Itagüí">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  
+  <!-- Schema.org para clínica dental -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DentistOffice",
+    "name": "Clínica Dental Dr. [Apellido]",
+    "description": "Clínica dental especializada en tratamientos odontológicos integrales",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "[Dirección completa]",
+      "addressLocality": "Itagüí",
+      "addressRegion": "Antioquia",
+      "postalCode": "[Código postal]",
+      "addressCountry": "CO"
+    },
+    "telephone": "+57-xxx-xxx-xxxx",
+    "email": "contacto@clinicadental.com",
+    "url": "https://clinicadental.com",
+    "openingHours": [
+      "Mo-Fr 08:00-18:00",
+      "Sa 08:00-12:00"
+    ],
+    "priceRange": "$$"
+  }
+  </script>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <!-- Estilos globales -->
+  <link rel="stylesheet" href="/src/styles/global.css">
+</head>
+<body>
+  <slot />
+</body>
+</html>
